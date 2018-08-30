@@ -36,7 +36,7 @@
 <constant name="C_icon_bg_focused" value="#909090" />
 <constant name="C_icon_bg_unfocused" value="#B6B6B6" />
 <constant name="C_icon_bg_hover" value="#7A7A7A" />
-<constant name="C_icon_bg_active" value="#ffffff" />
+<constant name="C_icon_bg_active" value="#f7f7f7" />
 
 <!-- geometries -->
 
@@ -61,7 +61,7 @@
 	<distance name="right_width" value="0" />
 	<distance name="left_titlebar_edge" value="2"/>
 	<distance name="right_titlebar_edge" value="2"/>
-	<distance name="title_vertical_pad" value="2"/> <!-- 
+	<distance name="title_vertical_pad" value="2"/> <!--
 							This needs to be 1 less then the
 							title_vertical_pad on normal state
 							or you'll have bigger buttons		-->

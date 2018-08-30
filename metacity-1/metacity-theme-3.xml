@@ -38,7 +38,7 @@
 <constant name="C_icon_bg_focused" value="#909090" />
 <constant name="C_icon_bg_unfocused" value="#B6B6B6" />
 <constant name="C_icon_bg_hover" value="#7A7A7A" />
-<constant name="C_icon_bg_active" value="#ffffff" />
+<constant name="C_icon_bg_active" value="#f7f7f7" />
 
 <!-- geometries -->
 
