@@ -22,7 +22,7 @@
   -gtk-icon-effect: dim; }
 
 .gtkstyle-fallback {
-  background-color: #F0F0F0;
+  background-color: #e8e8e8;
   color: #4a4a4a; }
   .gtkstyle-fallback:hover {
     background-color: white;
@@ -633,7 +633,7 @@ modelbutton.flat {
   border-radius: 2px; }
   menuitem.button.flat:hover,
   modelbutton.flat:hover {
-    background-color: #F0F0F0; }
+    background-color: #e8e8e8; }
   menuitem.button.flat:checked,
   modelbutton.flat:checked {
     color: #4a4a4a; }
@@ -732,7 +732,7 @@ combobox arrow {
 toolbar, .inline-toolbar {
   -GtkWidget-window-dragging: true;
   padding: 4px;
-  background-color: #F0F0F0; }
+  background-color: #e8e8e8; }
   toolbar separator, .inline-toolbar separator {
     background: none; }
   toolbar.horizontal separator, .horizontal.inline-toolbar separator {
@@ -782,7 +782,7 @@ toolbar, .inline-toolbar {
   border-image: linear-gradient(to bottom, #d9d9d9, #c7c7c7) 1 0 1 0; }
 
 .inline-toolbar {
-  background-color: #F0F0F0;
+  background-color: #e8e8e8;
   border-style: solid;
   border-color: #d9d9d9;
   border-width: 0 1px 1px;
@@ -790,7 +790,7 @@ toolbar, .inline-toolbar {
   border-radius: 0  0 3px 3px; }
 
 searchbar {
-  background-color: #F0F0F0;
+  background-color: #e8e8e8;
   border-style: solid;
   border-color: #d9d9d9;
   border-width: 0 0 1px;
@@ -799,7 +799,7 @@ searchbar {
 actionbar {
   padding: 6px;
   border-top: 1px solid #d9d9d9;
-  background-color: #F0F0F0; }
+  background-color: #e8e8e8; }
 
 headerbar,
 .titlebar:not(headerbar) {
@@ -1394,7 +1394,7 @@ treeview.view {
     treeview.view header button:active:hover {
       color: #4a4a4a; }
     treeview.view header button:disabled {
-      border-color: #F0F0F0;
+      border-color: #e8e8e8;
       background-image: none; }
     treeview.view header button:last-child {
       border-right-style: none; }
@@ -1582,7 +1582,7 @@ notebook {
     background-color: #f7f7f7; }
   notebook > header {
     padding: 2px;
-    background-color: #F0F0F0;
+    background-color: #e8e8e8;
     /* button in headers */ }
     notebook > header.top {
       box-shadow: inset 0 -1px #d9d9d9; }
@@ -2540,7 +2540,7 @@ paned > separator {
   paned > separator.wide {
     min-width: 5px;
     min-height: 5px;
-    background-color: #F0F0F0;
+    background-color: #e8e8e8;
     background-image: linear-gradient(to bottom, #d9d9d9, #d9d9d9), linear-gradient(to bottom, #d9d9d9, #d9d9d9);
     background-size: 1px 1px, 1px 1px; }
 paned.horizontal > separator {
@@ -3121,7 +3121,7 @@ NautilusQueryEditor .search-bar.toolbar {
     background-color: rgba(154, 184, 124, 0.8);
     border-color: rgba(129, 166, 91, 0.8); }
   .disk-space-display.free {
-    background-color: #F0F0F0;
+    background-color: #e8e8e8;
     border-color: #cfcfcf; }
 
 NautilusListView .view, NautilusListView iconview {
@@ -3249,7 +3249,7 @@ NautilusListView .view, NautilusListView iconview {
 
 .gedit-side-panel-paned statusbar {
   border-top: 1px solid #d9d9d9;
-  background-color: #F0F0F0; }
+  background-color: #e8e8e8; }
 
 .gedit-search-entry-occurrences-tag {
   color: rgba(74, 74, 74, 0.6);
@@ -3319,7 +3319,7 @@ pillbox {
 
 docktabstrip {
   padding: 0 6px;
-  background-color: #F0F0F0;
+  background-color: #e8e8e8;
   border-bottom: 1px solid #d9d9d9; }
   docktabstrip docktab {
     min-height: 28px;
@@ -3341,7 +3341,7 @@ dockpaned {
   border: 1px solid #d9d9d9; }
 
 dockoverlayedge {
-  background-color: #F0F0F0; }
+  background-color: #e8e8e8; }
   dockoverlayedge docktabstrip {
     padding: 0;
     border: none; }
@@ -3721,7 +3721,7 @@ filechooser placessidebar.sidebar list scrollbar, .nemo-window .sidebar scrollba
 
 #content_frame {
   padding-bottom: 14px;
-  background-color: #F0F0F0;
+  background-color: #e8e8e8;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   border: solid rgba(0, 0, 0, 0.1);
@@ -3872,13 +3872,13 @@ window.background.lightdm .lightdm-combo {
 
 @define-color theme_fg_color #4a4a4a;
 @define-color theme_text_color #4a4a4a;
-@define-color theme_bg_color #F0F0F0;
+@define-color theme_bg_color #e8e8e8;
 @define-color theme_base_color #f7f7f7;
 @define-color theme_selected_bg_color #9ab87c;
 @define-color theme_selected_fg_color #f7f7f7;
 @define-color fg_color #4a4a4a;
 @define-color text_color #4a4a4a;
-@define-color bg_color #F0F0F0;
+@define-color bg_color #e8e8e8;
 @define-color base_color #f7f7f7;
 @define-color selected_bg_color #9ab87c;
 @define-color selected_fg_color #f7f7f7;
@@ -3887,7 +3887,7 @@ window.background.lightdm .lightdm-combo {
 @define-color insensitive_base_color #f7f7f7;
 @define-color theme_unfocused_fg_color #4a4a4a;
 @define-color theme_unfocused_text_color #4a4a4a;
-@define-color theme_unfocused_bg_color #F0F0F0;
+@define-color theme_unfocused_bg_color #e8e8e8;
 @define-color theme_unfocused_base_color #f7f7f7;
 @define-color borders #d9d9d9;
 @define-color unfocused_borders #d9d9d9;
