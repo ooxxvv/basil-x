@@ -1,5 +1,5 @@
 #######################################################################
-# Copy theme files into /usr/share/themes/
+# Copy/Zip theme files
 #######################################################################
 # Set working directory as the directory of this script
 cd "$(dirname "$0")"
@@ -10,17 +10,17 @@ install_path=/usr/share/themes
 zip_path=~/Desktop
 
 # Install or Create
-read -p "(1)Install theme or (2)Create zip file on Desktop (1/2) ? " ans
+read -p "(I)nstall theme or (C)reate zip file on Desktop (I/C) ? " ans
 
 case $ans in
 # Install
-1)
+I)
     sudo mkdir -p $install_path/$theme_name
     yes | sudo cp -r ./* $install_path/$theme_name
     echo 'Install completed.'
 ;;
 # Create
-2)
+C)
     zip -FSr $zip_path/$theme_name ./*
     echo 'Create completed.'
 ;;
