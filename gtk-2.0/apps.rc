@@ -36,7 +36,7 @@ widget_class "*CajaSidePane*"                           style "dark-sidebar"
 
 style "terminal_screen"
 {
-    text[NORMAL] = "#f7f7f7"
+    text[NORMAL] = "#ffffff"
     base[NORMAL] = "#3f3f3f"
 
     TerminalScreen::background-darkness = 0.9

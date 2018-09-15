@@ -16,7 +16,7 @@ style "notify-button" {
 
   fg[NORMAL] = "#BAC3CF"
   fg[PRELIGHT] = "#BAC3CF"
-  fg[ACTIVE] = "#f7f7f7"
+  fg[ACTIVE] = "#ffffff"
 
   engine "murrine" {
     gradient_shades = { 1.0, 1.0, 1.0, 1.0 }
