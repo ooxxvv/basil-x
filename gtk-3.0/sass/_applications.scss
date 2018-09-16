@@ -91,6 +91,15 @@ TerminalWindow {
 }
 
 //
+// MATE Terminal
+//
+vte-terminal {
+  -TerminalScreen-background-darkness: 0.9;
+  background-color: #3f3f3f;
+  color: #fff;
+}
+
+//
 // Nautilus
 //
 .nautilus-canvas-item {
@@ -127,7 +136,7 @@ TerminalWindow {
 filechooser {
   .csd.background, placessidebar list { background-color: transparent; }
 
-  placessidebar.sidebar {
+  placessidebar.sidebar list {
     background-color: $dark_sidebar_bg;
 
     row.sidebar-row {
@@ -236,9 +245,18 @@ NautilusListView .view { border-bottom: 1px solid $borders_color; }
     &:selected { &:focus, & { @extend %selected_items; }}
   }
 
+  .nemo-inactive-pane .view {
+    background-color: darken($base_color, 5%);
+
+    &:selected { &:focus, & { @extend %selected_items; }}
+  }
+
   .places-treeview {
     -NemoPlacesTreeView-disk-full-bg-color: $dark_sidebar_fg;
     -NemoPlacesTreeView-disk-full-fg-color: darken($selected_bg_color, 10%);
+    -GtkTreeView-vertical-separator: 7;
+
+    .view.cell:hover { background-color: transparentize($dark_sidebar_fg, 0.85); }
   }
 
   .nemo-places-sidebar.frame { border-width: 0; }
@@ -246,6 +264,8 @@ NautilusListView .view { border-bottom: 1px solid $borders_color; }
   .sidebar {
     color: $dark_sidebar_fg;
     background-color: $dark_sidebar_bg;
+
+    .frame { border: none; }
 
     .view, row {
       background-color: transparent;
@@ -263,10 +283,12 @@ NautilusListView .view { border-bottom: 1px solid $borders_color; }
       }
     }
 
-    separator { background-color: transparent; }
-
     scrollbar { @extend %dark_sidebar_scrollbar }
   }
+
+  /* This is to keep the separator next to the sidebar dark so we don't see a gap
+     between it and the trash bar */
+  grid > paned > separator { background-image: _solid($dark_sidebar_bg); }
 
   // Fix padding of the statusbar buttons
   & widget .toolbar .image-button { padding: 0; }
@@ -275,19 +297,17 @@ NautilusListView .view { border-bottom: 1px solid $borders_color; }
 //
 // Caja
 //
-CajaWindow {
 
-  EelEditableLabel.entry { transition: none; } // Workaround for invisible text in rename entry
+.caja-navigation-window {
 
-  FMTreeView .view,
-  CajaNotesViewer .view,
-  CajaPlacesSidebar .view,
-  CajaHistorySidebar .view,
-  CajaInformationPanel GtkBox,
-  CajaEmblemSidebar GtkViewport {
-    background-color: $dark_sidebar_bg;
-    color: $dark_sidebar_fg;
-    border-width: 0px;
+  .caja-side-pane {
+
+    .view,
+    textview text,
+    notebook {
+      background-color: $dark_sidebar_bg;
+      color: $dark_sidebar_fg;
+    }
   }
 }
 
@@ -696,21 +716,24 @@ SynapseGuiViewVirgilio *:selected { background-color: $selected_bg_color; }
   color: $panel_fg;
   background-color: $panel_bg;
 
-  &, .menubar { background-color: $panel_bg; }
+  &, menubar { background-color: $panel_bg; }
 
-  & .menubar > .menuitem {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
+  menubar,
+  #PanelApplet label,
+  #PanelApplet image { color: $panel_fg; }
 
-  & GtkMenu .label {
+  menu > menuitem {
     color: $fg_color;
-    font-style: normal;
 
-    &:disabled { color: $insensitive_fg_color; }
+    &:hover { color: $selected_fg_color; }
   }
 
-  .button:not(#tasklist-button) { @extend %panelbutton; }
+  button:not(#tasklist-button) { @extend %panelbutton; }
+
+  button,
+  #tasklist-button {
+    label, image { color: inherit; }
+  }
 
   #tasklist-button {
     color: $panel_fg;
@@ -723,8 +746,9 @@ SynapseGuiViewVirgilio *:selected { background-color: $selected_bg_color; }
 
     &:checked,
     &:active {
-      color: $selected_fg_color;
       background-color: $selected_bg_color;
+
+      label { color: white; }
     }
   }
 
@@ -734,8 +758,8 @@ SynapseGuiViewVirgilio *:selected { background-color: $selected_bg_color; }
     padding-bottom: 4px;
   }
 
-  NaTrayApplet {
-    -NaTrayApplet-icon-padding: 2;
+  na-tray-applet {
+    -NaTrayApplet-icon-padding: 1px;
   }
 }
 
@@ -755,8 +779,9 @@ SynapseGuiViewVirgilio *:selected { background-color: $selected_bg_color; }
 // Xfce Panel
 .xfce4-panel.panel {
   background-color: #393939;
+  color: $panel_fg;
 
-  .button.flat {
+  button.flat {
     color: $panel_fg;
     background-color: transparentize($panel_bg, 1);
     border-radius: 0;
@@ -767,9 +792,9 @@ SynapseGuiViewVirgilio *:selected { background-color: $selected_bg_color; }
       background-color: lighten($panel_bg, 10%);
     }
     &:active, &:checked {
-      color: $selected_bg_color;
+      color: $selected_fg_color;
       border: none;
-      background-color: darken($panel_bg, 7%);
+      background-color: $selected_bg_color;
     }
   }
 }
@@ -784,11 +809,14 @@ SynapseGuiViewVirgilio *:selected { background-color: $selected_bg_color; }
     border: none;
     background-color: lighten($panel_bg, 10%);
   }
+
   &:active, &:checked {
     color: $selected_fg_color;
     border: none;
     background-color: $selected_bg_color;
   }
+
+  label, image { color: inherit; }
 }
 
 //
@@ -804,9 +832,6 @@ SynapseGuiViewVirgilio *:selected { background-color: $selected_bg_color; }
   &.left { border-radius: 0 2px 2px 0; }
 
   .button {
-    -GtkButton-image-spacing: 0;
-    -GtkButton-inner-border: 0;
-
     background-color: transparent;
     box-shadow: none;
     border: none;
@@ -889,7 +914,8 @@ SwitchboardCategoryView .view:selected:focus {
 //
 .cs-header {
   padding: 6px;
-  background-color: if($variant == 'light', darken($bg_color, 1%), darken($bg_color, 1%));
+  background-color: if($variant == 'light', darken($bg_color, 2%), darken($bg_color, 1%));
+  border-bottom: 1px solid $borders_color;
 }
 
 //

@@ -853,6 +853,7 @@ toolbar {
   }
 }
 
+.primary-toolbar toolbar,
 .primary-toolbar:not(.libreoffice-toolbar) {  // LO messes up the toolbar styling, so exclude LO toolbars
   color: $header_fg;
   background-color: opacify($header_bg, 1);
@@ -867,6 +868,7 @@ toolbar {
   separator { @extend %header_separator; }
 }
 
+.primary-toolbar toolbar,
 .primary-toolbar { @extend %header_widgets; }
 
 .inline-toolbar {
@@ -1194,6 +1196,35 @@ headerbar {
     }
   }
 
+  // special case widgets like the linked entry and button in mintinstall toolbar
+  .linked:not(.vertical) entry {
+    box-shadow: none;
+
+    &:focus {
+      @include entry(header-normal);
+      background-clip: padding-box;
+    }
+
+    & + button:last-child {
+      @include button(header-hover);
+
+        &:hover { background-color: lighten($header_button_bg, 15%); }
+        &:active, &:checked { @include button(header-active); }
+        &:disabled {
+          color: transparentize($header_fg, 0.4);
+          background-color: transparentize($header_button_bg, 0.2);
+          border-color: $header_button_border;
+
+          &:checked {
+            background-color: transparentize($selected_bg_color, 0.35);
+            color: transparentize($selected_fg_color, 0.25);
+          }
+        }
+
+        &, &:hover, &:active, &:checked, &:disabled { @extend %linked; }
+    }
+  }
+
   // Headerbar Suggested and Destructive Action buttons
   @each $b_type, $b_color in (suggested-action, $suggested_color),
                              (destructive-action, $destructive_color) {
@@ -1399,6 +1430,9 @@ treeview.view {
     border-style: solid none;
     border-width: 1px;
     border-color: mix($fg_color, $selected_bg_color, 50%);
+
+    &.after { border-top-style: none; }
+    &.before { border-bottom-style: none; }
   }
 
   &.expander {
@@ -1510,6 +1544,8 @@ menubar,
       color: transparentize($header_fg, 0.6);
       border-color: transparent;
     }
+
+    > label:disabled { color: transparentize($header_fg, 0.45); }
   }
 }
 
@@ -1687,7 +1723,7 @@ notebook {
     &.right {  box-shadow: inset  1px 0   $borders_color; }
     &.left {   box-shadow: inset -1px 0   $borders_color; }
 
-  @each $_pos, $_bpos in (top, bottom), (bottom, top), (right, left), (left, right) {
+    @each $_pos, $_bpos in (top, bottom), (bottom, top), (right, left), (left, right) {
       // sizing and borders
       &.#{$_pos} {
         padding-#{$_bpos}: 0;
@@ -1783,6 +1819,9 @@ notebook {
         }
       }
     }
+
+    /* button in headers */
+    button.flat { padding: 2px; }
   }
 }
 
@@ -1913,7 +1952,7 @@ switch {
 
   headerbar switch#{$k},
   .primary-toolbar switch#{$k},
-  .primary-toolbar .toolbar switch#{$k} {
+  .primary-toolbar toolbar switch#{$k} {
     background-image: -gtk-scaled(url("assets/switch#{$l}-header#{$darker_asset_suffix}.png"),url("assets/switch#{$l}-header#{$darker_asset_suffix}@2.png"));
   }
 }
@@ -2227,6 +2266,12 @@ progressbar {
   }
 }
 
+// Needed by the Mate osd when Marco with compositing is enabled
+.osd {
+  .progressbar { background-color: $selected_bg_color; }
+  .trough { background-color: lighten($osd_bg_color, 75%); }
+}
+
 //
 // Level Bar
 //
@@ -2347,7 +2392,7 @@ row {
 
   &.activatable {
     &.has-open-popup,
-    &:hover { background-color: if($variant == 'light', transparentize(black, 0.95), transparentize(white, 0.97)); }
+    &:hover { background-color: if($variant == 'light', transparentize(black, 0.97), transparentize(white, 0.95)); }
 
     &:active { color: $fg_color; }
     &:disabled {
@@ -2529,7 +2574,7 @@ filechooserbutton:drop(active) {
     border-right-style: none;
   }
 
-  list { background-color: transparent; }
+  list { background-color: $base_color; }
 
   paned & { &.left, &.right, &.left:dir(rtl), &:dir(rtl), &:dir(ltr), & { border-style: none; }}
 }
@@ -2661,16 +2706,9 @@ paned {
 
   &.horizontal > separator {
     background-repeat: repeat-y;
-    &:dir(ltr) {
-      margin: 0 -8px 0 0;
-      padding: 0 8px 0 0;
-      background-position: left;
-    }
-    &:dir(rtl) {
-      margin: 0 0 0 -8px;
-      padding: 0 0 0 8px;
-      background-position: right;
-    }
+    margin: 0 -3px 0 -3px;
+    padding: 0 3px 0 3px;
+    background-position: center;
 
     &.wide {
       margin: 0;
@@ -2681,10 +2719,10 @@ paned {
   }
 
   &.vertical > separator {
-    margin: 0 0 -8px 0;
-    padding: 0 0 8px 0;
+    margin: -3px 0 -3px 0;
+    padding: 3px 0 3px 0;
     background-repeat: repeat-x;
-    background-position: top;
+    background-position: center;
 
     &.wide {
       margin: 0;
@@ -2717,6 +2755,10 @@ infobar {
     }
 
     *:link { @extend %link_selected; }
+
+    &:disabled {
+      label, image { color: transparentize($selected_fg_color, 0.5); }
+    }
   }
 
   &.warning { background-color: $warning_color; }
@@ -2770,7 +2812,8 @@ infobar {
 //
 // Tooltips
 //
-tooltip {
+tooltip,
+.tooltip {
   &.background {
     // background-color needs to be set this way otherwise it gets drawn twice
     // see https://bugzilla.gnome.org/show_bug.cgi?id=736155 for details.
@@ -2927,9 +2970,11 @@ colorchooser .popover.osd { border-radius: 3px; }
 // Shortcuts Help
 //
 button.circular,
-button.circular-button {
-  min-width: 16px;
+button.circular-button,
+.stack-switcher > button.circular {
+  min-width: 24px;
   min-height: 24px;
+  padding: 5px;
   border-radius: 50%;
   -gtk-outline-radius: 50%;
 
