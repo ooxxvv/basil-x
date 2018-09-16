@@ -60,7 +60,7 @@ SushiFontWidget {
 vte-terminal.terminal-screen {
   -TerminalScreen-background-darkness: 0.9;
   background-color: #3f3f3f;
-  color: #fff;
+  color: #f7f7f7;
 }
 
 terminal-screen-container,
@@ -96,7 +96,7 @@ TerminalWindow {
 vte-terminal {
   -TerminalScreen-background-darkness: 0.9;
   background-color: #3f3f3f;
-  color: #fff;
+  color: #f7f7f7;
 }
 
 //
@@ -742,13 +742,13 @@ SynapseGuiViewVirgilio *:selected { background-color: $selected_bg_color; }
     padding-bottom: 0;
     padding-top: 0;
 
-    &:hover { background-color: transparentize(white, 0.95); }
+    &:hover { background-color: transparentize(#f7f7f7, 0.95); }
 
     &:checked,
     &:active {
       background-color: $selected_bg_color;
 
-      label { color: white; }
+      label { color: #f7f7f7; }
     }
   }
 
@@ -887,7 +887,7 @@ MarlinViewWindow {
     border: 1px solid rgba(0, 0, 0, 0.35);
     border-radius: 3px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background-color: white;
+    background-color: #f7f7f7;
 
   .title, .label {
     color: #5c616c;

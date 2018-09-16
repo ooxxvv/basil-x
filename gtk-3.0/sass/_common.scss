@@ -1884,7 +1884,7 @@ scrollbar {
         min-width: 4px;
         min-height: 4px;
         background-color: mix($fg_color, $bg_color, 70%);
-        border: 1px solid if($variant == 'light', transparentize(white, 0.4), transparentize(black, 0.7));
+        border: 1px solid if($variant == 'light', transparentize(#f7f7f7, 0.4), transparentize(black, 0.7));
         // background-clip: padding-box;
       }
 
@@ -2392,7 +2392,7 @@ row {
 
   &.activatable {
     &.has-open-popup,
-    &:hover { background-color: if($variant == 'light', transparentize(black, 0.97), transparentize(white, 0.95)); }
+    &:hover { background-color: if($variant == 'light', transparentize(black, 0.97), transparentize(#f7f7f7, 0.95)); }
 
     &:active { color: $fg_color; }
     &:disabled {
@@ -2892,7 +2892,7 @@ colorswatch {
     }
   }
   &.dark overlay {
-    color: transparentize(white, 0.3);
+    color: transparentize(#f7f7f7, 0.3);
     &:hover {
       border-color: if($variant == 'light', transparentize(black, 0.5), $borders_color);
     }
@@ -2906,7 +2906,7 @@ colorswatch {
 
   overlay {
     border: 1px solid if($variant == 'light', transparentize(black, 0.85), $borders_color);
-    &:hover { background-color: transparentize(white, 0.8) }
+    &:hover { background-color: transparentize(#f7f7f7, 0.8) }
   }
 
   &:disabled {

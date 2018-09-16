@@ -20,9 +20,9 @@ $link_visited_color: if($variant == 'light', darken($selected_bg_color,20%),
 $selection_mode_bg: $selected_bg_color;
 $selection_mode_fg: $selected_fg_color;
 $warning_color: #f27835;
-$warning_fg_color: white;
+$warning_fg_color: #f7f7f7;
 $error_color: #FC4138;
-$error_fg_color: white;
+$error_fg_color: #f7f7f7;
 $success_color: #73d216;
 $destructive_color: #F04A50;
 $suggested_color: #6db442;
