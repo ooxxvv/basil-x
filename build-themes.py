@@ -47,7 +47,6 @@ if __name__ == '__main__':
             os.system("cp gtk-3.0/thumbnail.png %s" % version_folder)
             # Metacity
             os.system("cp -R metacity-1 %s" % dest_folder)
-            os.system("rm %s/*-dark*" % (os.path.join(dest_folder, "metacity-1")))
             # XFCE-Notify
             os.system("cp -R xfce-notify-4.0 %s" % dest_folder)
             # XFWM
