@@ -1,4 +1,3 @@
-#! /bin/sh
+#!/bin/sh
 
-rm ./gtk.css
-sass --sourcemap=none --update ./sass:.
+sassc --style expanded ./sass/gtk.scss > ./gtk.css
