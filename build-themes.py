@@ -28,7 +28,7 @@ if __name__ == '__main__':
     for variation in VARIATIONS:
         dest_folder = os.path.join(DEST, variation)
         if variation == "Basil-X":
-            print("    Building Mint-Y-Mist")
+            print("    Building Basil-X")
             os.system("mkdir -p %s" % dest_folder)
             os.system("cp index.theme %s" % os.path.join(dest_folder, "index.theme"))
             # Gtk2
