@@ -3,5 +3,8 @@
 *.css.map
 *.sass.map
 *.scss.map
+gtk-3.0/gtk.css
 
+# Assets
+*/assets/
 
