@@ -1,54 +1,46 @@
 #!/bin/sh
-#######################################################################
+#############################################################################
 # Build and Copy/Zip theme files
-#######################################################################
-# Set working directory as the directory of this script
+############################################ Working Directory & Variable ###
 cd "$(dirname "$0")"
 working_path=$(pwd)
 
-# Local variable
 theme_path=./usr_share_themes
 theme_name=Basil-X
 install_path=/usr/share/themes
 zip_path=~/Desktop
 
-# Install or Create
-echo "============================================================"
-read -p "(I)nstall theme or (C)reate zip file on Desktop (I/C) ? " after_build
+################################################################# Process ###
+echo "=============== Install or Create ====================================="
+read -p "Build & (I)nstall theme or (C)reate zip file on Desktop (I/C) ? " after_build
 
-################################################## Install dependence #
-echo "============================================================"
-read -p "Check dependence and install (y/n) ? " ans
-if [ "$ans" = "y" ]; then
-    sudo apt install -y inkscape optipng sassc zip
-fi
+echo "=============== Check dependence and install =========================="
+sudo apt install -y inkscape optipng sassc zip
 
-######################################################### Build Theme #
-echo "============================================================"
+echo "=============== Build theme ==========================================="
 mkdir -p $theme_path/$theme_name
 python ./build-themes.py
 
-################################################# Install/Create theme #
-echo "============================================================"
 case $after_build in
-# Install
 I)
-    yes | sudo rm -r $install_path/$theme_name
-    yes | sudo cp -r $theme_path/$theme_name $install_path/$theme_name
-    echo 'Install completed.'
+  echo "=============== Install ============================================="
+  yes | sudo rm -r $install_path/$theme_name
+  yes | sudo cp -r $theme_path/$theme_name $install_path/$theme_name
+  echo 'Install completed.'
 ;;
 # Create
 C)
-    cd $theme_path/$theme_name
-    zip -FSr $zip_path/$theme_name ./*
-    echo 'Create completed.'
+  echo "=============== Create =============================================="
+  cd $theme_path/$theme_name
+  zip -FSr $zip_path/$theme_name ./*
+  echo 'Create completed.'
 ;;
 *)
-    echo 'Build finished.'
+  echo 'Build finished.'
 ;;
 esac
 
-################################################## Delete temp folder #
+echo "=============== Delete temp fiels ====================================="
 cd $working_path
 rm -r $theme_path
 
