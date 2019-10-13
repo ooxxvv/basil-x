@@ -3,44 +3,34 @@
 # Build and Copy/Zip theme files
 ############################################ Working Directory & Variable ###
 cd "$(dirname "$0")"
-working_path=$(pwd)
+working_dir=$(pwd)
 
-theme_path=./usr_share_themes
+theme_dir=$working_dir/build
 theme_name=Basil-X
-install_path=/usr/share/themes
-zip_path=~/Desktop
+install_dir=/usr/share/themes
+zip_dir=~/Desktop
 
 ################################################################# Process ###
 echo "=============== Install or Create ====================================="
-read -p "Build & (I)nstall theme or (C)reate zip file on Desktop (I/C) ? " after_build
+read -p "(I)nstall builded theme or (C)reate zip file on Desktop (I/C)? " input_value
 
-echo "=============== Check dependence and install =========================="
-sudo apt install -y inkscape optipng sassc zip
-
-echo "=============== Build theme ==========================================="
-mkdir -p $theme_path/$theme_name
-python ./build-themes.py
-
-case $after_build in
+case $input_value in
 I)
   echo "=============== Install ============================================="
-  yes | sudo rm -r $install_path/$theme_name
-  yes | sudo cp -r $theme_path/$theme_name $install_path/$theme_name
+  yes | sudo rm -r $install_dir/$theme_name
+  yes | sudo cp -r $theme_dir/$theme_name $install_dir/$theme_name
   echo 'Install completed.'
 ;;
-# Create
 C)
   echo "=============== Create =============================================="
-  cd $theme_path/$theme_name
-  zip -FSr $zip_path/$theme_name ./*
+  cd $theme_dir/$theme_name
+  zip -FSr $zip_dir/$theme_name ./*
+  cd $working_dir
   echo 'Create completed.'
 ;;
 *)
-  echo 'Build finished.'
+  echo 'Do nothing.'
 ;;
 esac
 
-echo "=============== Delete temp fiels ====================================="
-cd $working_path
-rm -r $theme_path
 
