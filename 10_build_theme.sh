@@ -11,7 +11,6 @@ build_dir=$working_dir/build
 echo "=============== Check dependence and install =========================="
 sudo apt install -y inkscape optipng sassc zip
 
-
 echo "=============== Delete old build ======================================"
 rm -r $build_dir
 
