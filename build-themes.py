@@ -4,7 +4,7 @@ import os
 
 VARIATIONS = ["Basil-X",]
 
-DEST = './usr_share_themes'
+DEST = './build'
 
 curdir = os.getcwd()
 

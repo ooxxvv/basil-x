@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Basil-X
+Comment= A little "Gray" then Mint-Y. A flat theme with transparent elements
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Basil-X
+MetacityTheme=Basil-X
+IconTheme=Mint-X
+CursorTheme=simple-colorful
+ButtonLayout=menu:minimize,maximize,close
