@@ -10,16 +10,15 @@ zip_path=~/Desktop
 temp_theme=~/Desktop/$theme_name
 
 ################################################################# Process ###
-echo "=============== Copy config files ====================================="
+echo "=== Copy config files ================================================="
 mkdir -p $temp_theme/cursors/curFiles
 cp index.theme $temp_theme
 cp 20_link_cur.sh $temp_theme/cursors
 
-echo "=============== Build & Link =========================================="
+echo "=== Build & Link ======================================================"
 sh 10_build_cur.sh $temp_theme/cursors/curFiles
 sh $temp_theme/cursors/20_link_cur.sh
 
-echo "======================================================================="
 if [ "$1" != "I" ]; then
   read -p "(I)nstall theme or (C)reate zip file on Desktop (I/C) ? " ans
 else
@@ -28,7 +27,7 @@ fi
 
 case $ans in
 I)
-  echo "=============== Install Cursor ======================================="
+  echo "=== Install Cursor =================================================="
   sudo mkdir -p $install_path/$theme_name
   yes | sudo cp -rf $temp_theme/* $install_path/$theme_name
   rm -r $temp_theme

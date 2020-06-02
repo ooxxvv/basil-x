@@ -24,6 +24,8 @@ I)
   sh ./ICONS/Basil-X-Icon/00_install_theme.sh $ans
 
   echo "=============== Style Theme ========================================="
+  echo "=== Install Style ==================================================="
+  yes | sudo rm -rf $install_dir/$theme_name
   yes | sudo cp -r $theme_dir/$theme_name $install_dir/$theme_name
   echo 'Install style completed.'
 ;;
