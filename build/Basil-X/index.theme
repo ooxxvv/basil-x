@@ -7,6 +7,6 @@ Encoding=UTF-8
 [X-GNOME-Metatheme]
 GtkTheme=Basil-X
 MetacityTheme=Basil-X
-IconTheme=Mint-X
-CursorTheme=simple-colorful
+IconTheme=Basil-X-Icon
+CursorTheme=Basil-X-Cursor
 ButtonLayout=menu:minimize,maximize,close

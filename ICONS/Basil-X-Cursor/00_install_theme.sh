@@ -20,18 +20,22 @@ sh 10_build_cur.sh $temp_theme/cursors/curFiles
 sh $temp_theme/cursors/20_link_cur.sh
 
 echo "======================================================================="
-read -p "(I)nstall theme or (C)reate zip file on Desktop (I/C) ? " ans
+if [ "$1" != "I" ]; then
+  read -p "(I)nstall theme or (C)reate zip file on Desktop (I/C) ? " ans
+else
+  ans=$1
+fi
 
 case $ans in
 I)
-  echo "=============== Install ============================================="
+  echo "=============== Install Cursor ======================================="
   sudo mkdir -p $install_path/$theme_name
   yes | sudo cp -rf $temp_theme/* $install_path/$theme_name
   rm -r $temp_theme
   echo 'Install completed.'
 ;;
 C)
-  echo "=============== Create =============================================="
+  echo "=============== Create ZIP ============================================"
   cd $temp_theme
   zip -FSr $zip_path/$theme_name ./*
   rm -r $temp_theme

@@ -12,17 +12,23 @@ zip_dir=~/Desktop
 
 ################################################################# Process ###
 echo "=============== Install or Create ====================================="
-read -p "(I)nstall builded theme or (C)reate zip file on Desktop (I/C)? " input_value
 
-case $input_value in
+read -p "(I)nstall builded theme or (C)reate zip file on Desktop (I/C)? " ans
+
+case $ans in
 I)
-  echo "=============== Install ============================================="
-  yes | sudo rm -r $install_dir/$theme_name
+  echo "=============== Cursor Theme ========================================"
+  sh ./ICONS/Basil-X-Cursor/00_install_theme.sh $ans
+
+  echo "=============== Icon Theme =========================================="
+  sh ./ICONS/Basil-X-Icon/00_install_theme.sh $ans
+
+  echo "=============== Style Theme ========================================="
   yes | sudo cp -r $theme_dir/$theme_name $install_dir/$theme_name
-  echo 'Install completed.'
+  echo 'Install style completed.'
 ;;
 C)
-  echo "=============== Create =============================================="
+  echo "=============== Create ZIP ==========================================="
   cd $theme_dir/$theme_name
   zip -FSr $zip_dir/$theme_name ./*
   cd $working_dir
@@ -32,5 +38,13 @@ C)
   echo 'Do nothing.'
 ;;
 esac
+
+
+
+
+
+
+
+
 
 
