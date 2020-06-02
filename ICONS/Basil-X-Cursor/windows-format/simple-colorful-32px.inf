@@ -1,0 +1,50 @@
+[Version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+CopyFiles = Scheme.Cur, Scheme.Txt
+AddReg    = Scheme.Reg
+
+[DestinationDirs]
+Scheme.Cur = 10,"%CUR_DIR%"
+Scheme.Txt = 10,"%CUR_DIR%"
+
+[Scheme.Reg]
+HKCU,"Control Panel\Cursors\Schemes","%SCHEME_NAME%",,"%10%\%CUR_DIR%\%pointer%,%10%\%CUR_DIR%\%help%,%10%\%CUR_DIR%\%work%,%10%\%CUR_DIR%\%busy%,%10%\%CUR_DIR%\%Cross%,%10%\%CUR_DIR%\%Text%,%10%\%CUR_DIR%\%Hand%,%10%\%CUR_DIR%\%Unavailiable%,%10%\%CUR_DIR%\%Vert%,%10%\%CUR_DIR%\%Horz%,%10%\%CUR_DIR%\%Dgn1%,%10%\%CUR_DIR%\%Dgn2%,%10%\%CUR_DIR%\%move%,%10%\%CUR_DIR%\%alternate%,%10%\%CUR_DIR%\%link%,%10%\%CUR_DIR%\%pin%,%10%\%CUR_DIR%\%person%"
+
+[Scheme.Cur]
+"Tumis_Busy.ani"
+"Tumis_Flat_Busy.ani"
+"sc32-a-pointer.cur"
+"sc32-click-able.cur"
+"sc32-drag-able.cur"
+"sc32-forbidden.cur"
+"sc32-mark-able.cur"
+"sc32-move-able.cur"
+"sc32-size-H.cur"
+"sc32-size-LR.cur"
+"sc32-size-RL.cur"
+"sc32-size-V.cur"
+"sc32-something-else.cur"
+
+[Strings]
+CUR_DIR         = "Cursors\simple-colorful"
+SCHEME_NAME     = "simple-colorful-32px"
+pointer         = "sc32-a-pointer.cur"
+help            = "sc32-drag-able.cur"
+work            = "Tumis_Busy.ani"
+busy		    = "Tumis_Flat_Busy.ani"
+cross		    = "sc32-a-pointer.cur"
+text		    = "sc32-mark-able.cur"
+hand		    = "sc32-something-else.cur"
+unavailiable    = "sc32-forbidden.cur"
+vert		    = "sc32-size-V.cur"
+horz		    = "sc32-size-H.cur"
+dgn1		    = "sc32-size-LR.cur"
+dgn2		    = "sc32-size-RL.cur"
+move		    = "sc32-move-able.cur"
+alternate       = "sc32-something-else.cur"
+link            = "sc32-click-able.cur"
+pin             = "sc32-click-able.cur"
+person          = "sc32-click-able.cur"
+
