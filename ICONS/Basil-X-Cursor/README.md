@@ -1,8 +1,5 @@
-# simple-colorful
-Cursor theme, just simple & colorful
-
-### Simple & Colorful
-
+Basil-X-Cursor
+===============
 There are many definition of cursor on X11 cursor theme, but that is too completate for me.
 
 I realize that only few cursors are used in almost of time when I working on computer in these years.
@@ -18,7 +15,8 @@ There are only few cursor in this theme, but they link to all definition of curs
  * forbidden: Forbidden, Error & Danger
  * something-else: Other cursors of theme but I don't really know when they will show
 
-### License
+License
+============
  * Base on cz-Viator (https://github.com/charakterziffer/cursor-toolbox)
  * ani-background & ani-busy was downloaded from internet long time ago (199x)
  * simple-colorful is licensed under GPLv3
